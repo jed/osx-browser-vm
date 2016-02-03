@@ -1,0 +1,15 @@
+{
+  "name": "osx-browser-vm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "rollup -f cjs osx-browser-vm.js > index.js",
+    "test": "rollup -f cjs test.js | node"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "rollup": "^0.25.2"
+  }
+}
