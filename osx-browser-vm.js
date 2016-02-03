@@ -3,7 +3,6 @@ import {exec} from 'child_process'
 export const safari = {run: runInBrowser, name: "Safari"}
 export const chrome = {run: runInBrowser, name: "Google Chrome"}
 export const canary = {run: runInBrowser, name: "Google Chrome Canary"}
-export const firefox = {} // https://bugzilla.mozilla.org/show_bug.cgi?id=5704
 
 const osascript = String(function run(args) {
   var appName = args[0]
@@ -28,6 +27,7 @@ const osascript = String(function run(args) {
     default:
       throw new Error(`${this.name} not supported.`)
   }
+export const firefox = {} // https://git.io/vgmfT
 
   tab.close()
   return JSON.stringify(output)
