@@ -1,16 +1,16 @@
 import {exec} from 'child_process'
 
-export const safari = {run: runInBrowser.bind(null, "Safari")}
-export const chrome = {run: runInBrowser.bind(null, "Google Chrome")}
-export const canary = {run: runInBrowser.bind(null, "Google Chrome Canary")}
+export const safari = {run: runInBrowser, name: "Safari"}
+export const chrome = {run: runInBrowser, name: "Google Chrome"}
+export const canary = {run: runInBrowser, name: "Google Chrome Canary"}
 export const firefox = {} // https://bugzilla.mozilla.org/show_bug.cgi?id=5704
 
-export default function runInBrowser(appName, code, cb) {
+function runInBrowser(code, cb) {
   if (typeof code == 'function') code = `(${code}())`
 
   code = code.replace(/'/g, "'\\''")
 
-  var command = `osascript -l JavaScript - '${appName}' '${code}'`
+  var command = `osascript -l JavaScript - '${this.name}' '${code}'`
   var options = {encoding: 'utf8'}
   var file = run.toString()
 
@@ -45,7 +45,7 @@ function run(args) {
       break
 
     default:
-      throw new Error(`${appName} not supported.`)
+      throw new Error(`${this.name} not supported.`)
   }
 
   tab.close()

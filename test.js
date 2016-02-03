@@ -1,13 +1,12 @@
 import {safari, chrome, canary} from './osx-browser-vm.js'
 
-safari.run(test, log.bind(null, "Safari"))
-chrome.run(test, log.bind(null, "Chrome"))
-canary.run(test, log.bind(null, "Canary"))
+var code = 'Object.getOwnPropertyNames(window).length'
+var vms = [safari, chrome, canary]
 
-function test() {
-  return Object.getOwnPropertyNames(window).length
-}
+console.log("Number of properties on window:")
 
-function log(browser, err, data) {
-  console.log("%s has %s window properties.", browser, data)
-}
+vms.forEach(vm => {
+  vm.run(code, (err, count) => {
+    console.log("- %s: %s", vm.name, count)
+  })
+})
