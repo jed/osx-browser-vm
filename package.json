@@ -20,5 +20,12 @@
   "bugs": {
     "url": "https://github.com/jed/osx-browser-vm/issues"
   },
-  "homepage": "https://github.com/jed/osx-browser-vm#readme"
+  "homepage": "https://github.com/jed/osx-browser-vm#readme",
+  "keywords": [
+    "vm",
+    "browser",
+    "eval",
+    "chrome",
+    "safari"
+  ]
 }
