@@ -43,6 +43,9 @@ function run(args) {
     case 'Google Chrome Canary':
       output = tab.execute({javascript})
       break
+
+    default:
+      throw new Error(`${appName} not supported.`)
   }
 
   tab.close()
