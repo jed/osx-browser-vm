@@ -8,7 +8,7 @@
     "rollup": "^0.25.2"
   },
   "scripts": {
-    "build": "rollup -f cjs osx-browser-vm.js > index.js",
+    "prepublish": "rollup -f cjs osx-browser-vm.js > index.js",
     "test": "rollup -f cjs test.js | node"
   },
   "repository": {
