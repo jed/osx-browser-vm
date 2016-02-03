@@ -1,6 +1,6 @@
 {
   "name": "osx-browser-vm",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Evaluate JavaScript in local OS X browsers",
   "main": "index.js",
   "jsnext:main": "osx-browser-vm.js",
@@ -28,5 +28,7 @@
     "chrome",
     "safari"
   ],
-  "os" : ["darwin"]
+  "os": [
+    "darwin"
+  ]
 }
