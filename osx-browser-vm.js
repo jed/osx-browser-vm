@@ -1,37 +1,14 @@
 import {exec} from 'child_process'
+import {readFileSync} from 'fs'
+import {join} from 'path'
 
 export const safari = {run: runInBrowser, name: "Safari"}
 export const chrome = {run: runInBrowser, name: "Google Chrome"}
 export const canary = {run: runInBrowser, name: "Google Chrome Canary"}
-
-const osascript = String(function run(args) {
-  var appName = args[0]
-  var javascript = args[1]
-  var browser = Application(appName)
-  var window = browser.windows[0]
-  var tab = browser.Tab()
-  var output
-
-  window.tabs.push(tab)
-
-  switch (appName) {
-    case 'Safari':
-      output = browser.doJavaScript(javascript, {in: tab})
-      break
-
-    case 'Google Chrome':
-    case 'Google Chrome Canary':
-      output = tab.execute({javascript})
-      break
-
-    default:
-      throw new Error(`${this.name} not supported.`)
-  }
 export const firefox = {} // https://git.io/vgmfT
 
-  tab.close()
-  return JSON.stringify(output)
-})
+const osascriptPath = join(__dirname, 'osascript.js')
+const osascript = readFileSync(osascriptPath, "utf8")
 
 function runInBrowser(code, cb) {
   if (typeof code == 'function') code = `(${code}())`
