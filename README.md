@@ -18,22 +18,21 @@ Example
 -------
 
 ```javascript
-import {safari, chrome, canary} from '.'
+import {safari, chrome, canary} from 'osx-browser-vm'
 
-safari.run(test, log.bind(null, "Safari"))
-chrome.run(test, log.bind(null, "Chrome"))
-canary.run(test, log.bind(null, "Canary"))
+var vms = [safari, chrome, canary]
+var code = 'Object.getOwnPropertyNames(window).length'
 
-function test() {
-  return Object.getOwnPropertyNames(window).length
-}
+console.log("Number of properties on window:")
 
-function log(browser, err, data) {
-  console.log("%s has %s window properties.", browser, data)
-}
+vms.forEach(vm => {
+  vm.run(code, (err, count) => {
+    console.log("- %s: %s", vm.name, count)
+  })
+})
+
+// Number of properties on window:
+// - Google Chrome Canary: 694
+// - Google Chrome: 682
+// - Safari: 607
 ```
-
-Results
--------
-
-![image](https://cloud.githubusercontent.com/assets/4433/12774189/76a93b1a-ca10-11e5-8bd0-f3522d955a94.png)
