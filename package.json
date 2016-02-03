@@ -1,15 +1,24 @@
 {
   "name": "osx-browser-vm",
   "version": "1.0.0",
-  "description": "",
+  "description": "Evaluate JavaScript in local OS X browsers",
   "main": "index.js",
+  "jsnext:main": "osx-browser-vm.js",
+  "devDependencies": {
+    "rollup": "^0.25.2"
+  },
   "scripts": {
     "build": "rollup -f cjs osx-browser-vm.js > index.js",
     "test": "rollup -f cjs test.js | node"
   },
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jed/osx-browser-vm.git"
+  },
+  "author": "Jed Schmidt <where@jed.is>",
   "license": "MIT",
-  "devDependencies": {
-    "rollup": "^0.25.2"
-  }
+  "bugs": {
+    "url": "https://github.com/jed/osx-browser-vm/issues"
+  },
+  "homepage": "https://github.com/jed/osx-browser-vm#readme"
 }

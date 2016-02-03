@@ -1,4 +1,4 @@
-import {safari, chrome, canary} from '.'
+import {safari, chrome, canary} from './osx-browser-vm.js'
 
 safari.run(test, log.bind(null, "Safari"))
 chrome.run(test, log.bind(null, "Chrome"))
