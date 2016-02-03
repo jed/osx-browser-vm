@@ -1,7 +1,7 @@
 import {safari, chrome, canary} from './osx-browser-vm.js'
 
-var code = 'Object.getOwnPropertyNames(window).length'
 var vms = [safari, chrome, canary]
+var code = 'Object.getOwnPropertyNames(window).length'
 
 console.log("Number of properties on window:")
 

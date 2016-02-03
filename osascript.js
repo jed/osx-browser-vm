@@ -19,7 +19,7 @@ function run(args) {
       break
 
     default:
-      throw new Error(`${this.name} not supported.`)
+      throw new Error(this.name + " not supported.")
   }
 
   tab.close()
