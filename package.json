@@ -27,5 +27,6 @@
     "eval",
     "chrome",
     "safari"
-  ]
+  ],
+  "os" : ["darwin"]
 }
