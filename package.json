@@ -1,6 +1,6 @@
 {
   "name": "osx-browser-vm",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Evaluate JavaScript in local OS X browsers",
   "main": "index.js",
   "jsnext:main": "osx-browser-vm.js",
